@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image"
 import { Button } from "@/components/ui/button";
@@ -13,7 +11,7 @@ import { HeaderLinks } from "@/constants";
 
 export default function Header() {
     return (
-        <header className="flex items-center justify-between p-4 bg-white shadow-md w-full">
+        <header className="flex items-center justify-between p-4 bg-white/70 border-b-2 border-white/10 backdrop-blur-2xl shadow-sm w-full px-10 py-6 fixed top-0 left-0 right-0 z-50">
             <Link href="/" className=" flex text-2xl font-semibold items-center">
                 <Image
                     src="/favicon.svg"
@@ -34,14 +32,14 @@ export default function Header() {
 
             <div>
                 <Button
-                    className="mr-4 px-6 py-4 text-[15px] rounded-full"
-                    variant="outline"
+                    className="mr-4 px-6 py-4 text-base rounded-full"
+                    variant="outline" size="lg"
                 >
                     Sign In
                 </Button>
                 <Button
-                    className="mr-4 px-6 py-4 text-[15px] rounded-full"
-                    variant="default"
+                    className="mr-4 px-6 py-4 text-base rounded-full"
+                    variant="default" size="lg"
                 >
                     Sign Up
                 </Button>
