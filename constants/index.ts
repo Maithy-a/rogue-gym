@@ -100,3 +100,45 @@ export const trainers = [
         },
     },
 ];
+
+export const plans = [
+    {
+        name: "Daily",
+        price: 500,
+        period: "day",
+        description: "Access to gym facilities for a full day with no commitment.",
+        features: [
+            { title: "Access to all gym equipment" },
+            { title: "Locker and shower access" },
+        ],
+        buttonText: "Join for a Day",
+          isPopular: false, 
+    },
+    {
+        name: "Monthly",
+        price: 4000,
+        period: "month",
+        description: "Unlimited gym access for a month with discounted pricing.",
+        features: [
+            { title: "Unlimited gym access" },
+            { title: "Free fitness assessment" },
+            { title: "Access to all group classes" },
+        ],
+        buttonText: "Subscribe Monthly",
+        isPopular: true,
+    },
+    {
+        name: "Student",
+        price: 3250,
+        period: "month",
+        description:
+            "Affordable monthly plan for students with valid student ID.",
+        features: [
+            { title: "Unlimited gym access" },
+            { title: "Access to student-only classes" },
+            { title: "Discounted personal training sessions" },
+        ],
+        buttonText: "Join as Student",
+          isPopular: false, 
+    }
+];
