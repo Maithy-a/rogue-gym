@@ -53,3 +53,50 @@ export const services = [
         icon: "/images/recovery.svg",
     },
 ];
+
+export const trainers = [
+    {
+        name: "James Kariuki",
+        specialty: "Strength & Conditioning",
+        image: "/images/trainers/trainer-1.jpg",
+        bio: "With 8+ years of experience, James helps clients build strength, endurance, and mental resilience through progressive training.",
+        qualities: ["Certified Coach", "Powerlifting Expert", "Motivational Leader", "Nutrition Advisor"],
+        socials: {
+            instagram: "https://instagram.com/jamesfit",
+            linkedin: "https://linkedin.com/in/jameskariuki",
+        },
+    },
+    {
+        name: "Grace Wanjiku",
+        specialty: "Nutrition & Wellness Coaching",
+        image: "/images/trainers/trainer-4.jpg",
+        bio: "Grace is passionate about helping clients achieve balance in both fitness and nutrition. She creates personalized meal plans and wellness programs tailored to individual needs.",
+        qualities: ["Certified Nutritionist", "Wellness Coach", "Holistic Health Advocate"],
+        socials: {
+            instagram: "https://instagram.com/gracewellness",
+            linkedin: "https://linkedin.com/in/gracewanjiku",
+        },
+    },
+    {
+        name: "Maithya Stephens",
+        specialty: "Yoga & Flexibility",
+        image: "/images/trainers/trainer-2.jpg",
+        bio: "Maithya combines modern yoga with mindfulness practices to improve flexibility, balance, and overall wellbeing.",
+        qualities: ["RYT Certified", "Mindfulness Coach", "Holistic Wellness", "Yoga Instructor"],
+        socials: {
+            instagram: "https://instagram.com/maithyayoga",
+            linkedin: "https://linkedin.com/in/maithyastephens",
+        },
+    },
+    {
+        name: "Benjamin Mwangi",
+        specialty: "HIIT & Cardio",
+        image: "/images/trainers/trainer-3.jpg",
+        bio: "Benjamin specializes in high-intensity interval training, pushing clients to burn fat and boost cardiovascular health.",
+        qualities: ["HIIT Specialist", "Group Trainer", "Energy Driven", "Cardio Expert"],
+        socials: {
+            instagram: "https://instagram.com/benjaminfit",
+            linkedin: "https://linkedin.com/in/benjaminmwangi",
+        },
+    },
+];
