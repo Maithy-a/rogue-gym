@@ -23,7 +23,7 @@ const Pricing = () => {
         <div className="min-h-screen flex flex-col items-center justify-center  py-12 px-6">
             <h2 className="text-4xl font-extrabold mb-4 text-gray-900">Membership Packages</h2>
             <p className="text-gray-600 max-w-xl mx-auto mb-10 text-center">
-                Choose the right plan for your fitness goals. From a single workout to year-round access,
+                Choose the right plan for your fitness goals. From a single workout to monthly-round access,
                 Rogue Gym Rongai has something for everyone.
             </p>
 
