@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image"
 import { Button } from "@/components/ui/button";
 
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+
 interface HeaderLinkProps {
     href: string;
     label: string;
@@ -30,19 +32,27 @@ export default function Header() {
                 ))}
             </nav>
 
-            <div>
-                <Button
-                    className="mr-4 px-6 py-4 text-base rounded-full"
-                    variant="outline" size="lg"
-                >
-                    Sign In
+            <div className="flex items-center gap-2">
+                <Button size="lg"
+                    variant="outline"
+                    className="border rounded-xl" >
+                    <Link href="#contact">Contact Us</Link>
                 </Button>
-                <Button
-                    className="mr-4 px-6 py-4 text-base rounded-full"
-                    variant="default" size="lg"
-                >
-                    Sign Up
-                </Button>
+                <SignedOut>
+                    <SignInButton >
+                        <Button
+                            className="mr-4 px-6 py-4  rounded-xl"
+                            variant="default"
+                            size="lg"
+                        >
+                            Sign In
+                        </Button>
+                    </SignInButton>
+                </SignedOut>
+
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
             </div>
         </header>
     );

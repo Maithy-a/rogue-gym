@@ -1,24 +1,20 @@
 export const HeaderLinks = [
     {
-        href: "/about",
+        href: "#about",
         label: "About"
     },
     {
-        href: "/services",
+        href: "#services",
         label: "Services"
     },
     {
-        href: "/trainers",
+        href: "#trainers",
         label: "Trainers"
     },
     {
-        href: "/membership",
+        href: "#membership",
         label: "Membership"
-    },
-    {
-        href: "/contact",
-        label: "Contact"
-    },
+    }
 ]
 
 export const services = [
@@ -112,7 +108,7 @@ export const plans = [
             { title: "Locker and shower access" },
         ],
         buttonText: "Join for a Day",
-          isPopular: false, 
+        isPopular: false,
     },
     {
         name: "Monthly",
@@ -139,6 +135,6 @@ export const plans = [
             { title: "Discounted personal training sessions" },
         ],
         buttonText: "Join as Student",
-          isPopular: false, 
+        isPopular: false,
     }
 ];
