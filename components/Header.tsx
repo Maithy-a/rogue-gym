@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image"
 import { Button } from "@/components/ui/button";
 
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 interface HeaderLinkProps {
     href: string;
@@ -41,7 +41,7 @@ export default function Header() {
                 <SignedOut>
                     <SignInButton >
                         <Button
-                            className="mr-4 px-6 py-4  rounded-xl"
+                            className="mr-4 px-6 py-4 rounded-xl"
                             variant="default"
                             size="lg"
                         >
@@ -51,7 +51,15 @@ export default function Header() {
                 </SignedOut>
 
                 <SignedIn>
-                    <UserButton />
+                    <Button
+                        className="mr-4 px-6 py-4 rounded-xl"
+                        variant="default"
+                        size="lg"
+                    >
+                        <Link href="/dashboard">
+                            Dashboard
+                        </Link>
+                    </Button>
                 </SignedIn>
             </div>
         </header>

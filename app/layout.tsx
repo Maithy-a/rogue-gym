@@ -29,7 +29,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       appearance={{ variables: { colorPrimary: "#fb923c" } }}
     >
       <html lang="en" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <body className="pt-20">
+        <body>
           <Header />
           {children}
         </body>
