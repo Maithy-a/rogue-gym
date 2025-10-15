@@ -15,7 +15,6 @@ import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 
 import { NavMain } from "@/components/nav-main";
-import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
@@ -26,6 +25,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Skeleton } from "./ui/skeleton";
 
 const navItems = {
   navMain: [
@@ -49,15 +49,7 @@ const navItems = {
       url: "/report",
       icon: Folder,
     },
-  ],
-
-  navSecondary: [
-    {
-      title: "Settings",
-      url: "/settings",
-      icon: Cog,
-    }
-  ],
+  ]
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -67,9 +59,35 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   if (!isLoaded) {
     return (
       <Sidebar collapsible="offcanvas" {...props}>
-        <div className="p-4 text-sm text-muted-foreground">
-          Loading user...
-        </div>
+        <SidebarHeader className="mb-6">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                className="data-[slot=sidebar-menu-button]:!p-1.5"
+              >
+                <Link href="/dashboard">
+                  <span className="font-semibold text-2xl text-primary">Rogue Gym.</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarHeader>
+
+        <SidebarContent className="space-y-4">
+          {[...Array(4)].map((_, index) => (
+            <div key={index} className="flex items-center gap-3 px-4">
+              <Skeleton className="h-8 w-10 rounded-md" />
+              <Skeleton className="h-8 w-full rounded-md" />
+            </div>
+          ))}
+        </SidebarContent>
+
+        <SidebarFooter className="flex flex-row items-center gap-3 p-4">
+          <Skeleton className="h-8 w-12 rounded-md" />
+          <Skeleton className="h-8 w-full rounded-md" />
+        </SidebarFooter>
+
       </Sidebar>
     )
   }
@@ -90,16 +108,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <Link href="/dashboard">
-                <span className="font-semibold text-xl text-primary">Rogue Gym.</span>
+                <span className="font-semibold text-2xl text-primary">Rogue Gym.</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
       <SidebarContent>
         <NavMain items={navItems.navMain} />
-        <NavSecondary items={navItems.navSecondary} className="mt-auto" />
       </SidebarContent>
+
       <SidebarFooter>
         <NavUser user={userData} />
       </SidebarFooter>
