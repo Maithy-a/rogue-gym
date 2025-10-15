@@ -1,12 +1,16 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
-import {
-    SidebarInset,
-    SidebarProvider,
-} from "@/components/ui/sidebar"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Protect } from '@clerk/nextjs'
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+export default async function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+
+    const { userId } = await auth();
+    if (!userId) {
+        redirect("/sign-in");
+    }
     return (
         <Protect>
             <SidebarProvider

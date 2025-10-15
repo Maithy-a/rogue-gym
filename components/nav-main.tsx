@@ -1,8 +1,6 @@
 "use client";
 
-// import { type Icon } from "@tabler/icons-react";
 import { LucideIcon } from "lucide-react";
-
 import Link from "next/link";
 
 import {
@@ -31,7 +29,7 @@ export function NavMain({ items }: NavMainProps) {
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
               <Link href={item.url}>
-                <SidebarMenuButton tooltip={item.title}>
+                <SidebarMenuButton>
                   {item.icon && <item.icon className="mr-2 h-4 w-4" />}
                   <span>{item.title}</span>
                 </SidebarMenuButton>

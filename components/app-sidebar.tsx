@@ -3,7 +3,6 @@
 import * as React from "react"
 
 import {
-  Dumbbell,
   House,
   LibraryBig,
   History,
@@ -91,7 +90,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <Link href="/dashboard">
-                <Dumbbell className="!size-7 text-primary" />
                 <span className="font-semibold text-xl text-primary">Rogue Gym.</span>
               </Link>
             </SidebarMenuButton>

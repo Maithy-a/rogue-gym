@@ -29,7 +29,7 @@ export function NavSecondary({ items, ...props }: NavSecondaryProps & React.Comp
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
                 <Link href={item.url}>
-                  <item.icon />
+                  {item.icon && <item.icon className="mr-2 h-4 w-4" />}
                   <span>{item.title}</span>
                 </Link>
               </SidebarMenuButton>

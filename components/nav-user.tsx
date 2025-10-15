@@ -27,6 +27,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { SignOutButton } from "@clerk/nextjs";
 
 interface NavUserProps {
   user: {
@@ -61,7 +62,6 @@ export function NavUser({ user: { name, email, avatar } }: NavUserProps) {
               <IconDotsVertical className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
-
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-60"
             side={isMobile ? "bottom" : "right"}
@@ -98,10 +98,12 @@ export function NavUser({ user: { name, email, avatar } }: NavUserProps) {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="bg-rose-400 !text-white hover:!bg-rose-600 ">
-              <IconLogout className="h-4 w-4 text-white" />
-              Log out
-            </DropdownMenuItem>
+            <SignOutButton redirectUrl="/sign-in">
+              <DropdownMenuItem className="bg-rose-400 !text-white hover:!bg-rose-600 ">
+                <IconLogout className="h-4 w-4 text-white" />
+                Log out
+              </DropdownMenuItem>
+            </SignOutButton>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
