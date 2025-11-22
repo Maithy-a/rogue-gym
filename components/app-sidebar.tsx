@@ -7,7 +7,7 @@ import {
   LibraryBig,
   History,
   Folder,
-  Cog
+  Dumbbell
 } from "lucide-react";
 
 import Link from "next/link";
@@ -36,7 +36,7 @@ const navItems = {
     },
     {
       title: "Package",
-      url: "/package",
+      url: "/packages",
       icon: LibraryBig,
     },
     {
@@ -46,8 +46,13 @@ const navItems = {
     },
     {
       title: "Report",
-      url: "/report",
+      url: "/reports",
       icon: Folder,
+    },
+    {
+      title: "Trainers",
+      url: "/trainers",
+      icon: Dumbbell,
     },
   ]
 }
