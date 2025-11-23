@@ -2,7 +2,6 @@
 
 import { LucideIcon } from "lucide-react";
 import Link from "next/link";
-
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -10,6 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { usePathname } from "next/navigation";
 
 interface NavItem {
   title: string;
@@ -18,24 +18,36 @@ interface NavItem {
 }
 
 interface NavMainProps {
-  items: NavItem[];
+  menuItems: NavItem[];
 }
 
-export function NavMain({ items }: NavMainProps) {
+export function NavMain({ menuItems }: NavMainProps) {
+  const pathname = usePathname();
+
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-4">
         <SidebarMenu>
-          {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <Link href={item.url}>
-                <SidebarMenuButton>
-                  {item.icon && <item.icon className="mr-2 h-4 w-4" />}
-                  <span>{item.title}</span>
+          {menuItems.map((menuItem,) => {
+            const active = pathname === menuItem.url;
+
+            return (
+              <SidebarMenuItem key={menuItem.title}>
+                <SidebarMenuButton asChild isActive={active} size='lg'>
+                  <Link
+                    href={menuItem.url}
+                    className={`flex items-center w-full ${active
+                      ? "font-semibold text-black"
+                      : "text-gray-600 hover:text-black"
+                      }`}
+                  >
+                    {menuItem.icon && <menuItem.icon className="mr-2 h-4 w-4" />}
+                    <span>{menuItem.title}</span>
+                  </Link>
                 </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-          ))}
+              </SidebarMenuItem>
+            );
+          })}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

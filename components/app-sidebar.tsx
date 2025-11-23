@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
 import {
   House,
   LibraryBig,
   History,
   Folder,
-  Dumbbell
+  Dumbbell,
 } from "lucide-react";
 
 import Link from "next/link";
-
 import { useUser } from "@clerk/nextjs";
 
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
+
 import {
   Sidebar,
   SidebarContent,
@@ -25,40 +25,20 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+
 import { Skeleton } from "./ui/skeleton";
 
 const navItems = {
   navMain: [
-    {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: House,
-    },
-    {
-      title: "Package",
-      url: "/packages",
-      icon: LibraryBig,
-    },
-    {
-      title: "Booking History",
-      url: "/booking-history",
-      icon: History,
-    },
-    {
-      title: "Report",
-      url: "/reports",
-      icon: Folder,
-    },
-    {
-      title: "Trainers",
-      url: "/trainers",
-      icon: Dumbbell,
-    },
-  ]
-}
+    { title: "Dashboard", url: "/dashboard", icon: House },
+    { title: "Package", url: "/packages", icon: LibraryBig },
+    { title: "Booking History", url: "/booking-history", icon: History },
+    { title: "Report", url: "/reports", icon: Folder },
+    { title: "Trainers", url: "/trainers", icon: Dumbbell },
+  ],
+};
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-
+export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   const { user, isLoaded } = useUser();
 
   if (!isLoaded) {
@@ -72,7 +52,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 className="data-[slot=sidebar-menu-button]:!p-1.5"
               >
                 <Link href="/dashboard">
-                  <span className="font-semibold text-2xl text-primary">Rogue Gym.</span>
+                  <span className="font-semibold text-2xl text-primary">
+                    Rogue Gym.
+                  </span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -92,16 +74,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <Skeleton className="h-8 w-12 rounded-md" />
           <Skeleton className="h-8 w-full rounded-md" />
         </SidebarFooter>
-
       </Sidebar>
-    )
+    );
   }
 
   const userData = {
-    name: `${user?.firstName || ""} ${user?.lastName || ""}`.trim() || "Anonymous",
+    name:
+      `${user?.firstName || ""} ${user?.lastName || ""}`.trim() ||
+      "Anonymous",
     email: user?.primaryEmailAddress?.emailAddress || "No email",
     avatar: user?.imageUrl || "",
-  }
+  };
+
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -113,7 +97,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <Link href="/dashboard">
-                <span className="font-semibold text-2xl text-primary">Rogue Gym.</span>
+                <span className="font-semibold text-2xl text-primary">
+                  Rogue Gym.
+                </span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -121,12 +107,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
 
       <SidebarContent>
-        <NavMain items={navItems.navMain} />
+        <NavMain menuItems={navItems.navMain} />
       </SidebarContent>
 
       <SidebarFooter>
         <NavUser user={userData} />
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

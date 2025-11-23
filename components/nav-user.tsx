@@ -1,7 +1,6 @@
 "use client"
 
 import {
-  IconCreditCard,
   IconDotsVertical,
   IconLogout,
   IconUserCircle,
@@ -27,6 +26,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+
 import { SignOutButton } from "@clerk/nextjs";
 
 interface NavUserProps {
@@ -64,7 +64,7 @@ export function NavUser({ user: { name, email, avatar } }: NavUserProps) {
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-60"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? "bottom" : "top"}
             align="end"
             sideOffset={4}
           >
@@ -86,24 +86,28 @@ export function NavUser({ user: { name, email, avatar } }: NavUserProps) {
                 </div>
               </div>
             </DropdownMenuLabel>
+
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <IconUserCircle />
                 Account
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <IconCreditCard />
-                Billing
-              </DropdownMenuItem>
             </DropdownMenuGroup>
+
             <DropdownMenuSeparator />
-            <SignOutButton redirectUrl="/sign-in">
-              <DropdownMenuItem className="bg-rose-400 !text-white hover:!bg-rose-600 ">
-                <IconLogout className="h-4 w-4 text-white" />
-                Log out
-              </DropdownMenuItem>
-            </SignOutButton>
+
+            <DropdownMenuItem asChild>
+              <SignOutButton redirectUrl="/sign-in">
+                <div className="flex w-full items-center gap-2 cursor-pointer">
+                  <IconLogout className="h-4 w-4" />
+                  <span>Log out</span>
+                </div>
+              </SignOutButton>
+            </DropdownMenuItem>
+
+
+
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

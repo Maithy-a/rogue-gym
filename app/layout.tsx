@@ -16,10 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Rogue Gym",
-  description: "Rogue Gym - Rongai gym management system",
-  icons: {
-    icon: "/favicon.svg",
-  }
+  description: "Rogue Gym - Rogue gym management system",
 };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
