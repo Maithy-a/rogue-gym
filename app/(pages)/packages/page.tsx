@@ -1,2 +1,6 @@
-export default function Page() 
-{return <div>Packages Page</div>;}
+
+import { PricingTable } from "@clerk/nextjs";
+
+export default function Page() {
+    return(<PricingTable />)
+}
